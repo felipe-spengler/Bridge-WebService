@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if ($result) {
                 $row = $result->fetch_assoc();
                 $resposta["erro"] = false;
-                $resposta["cargo"] = $row["cargo"];
+                $resposta["cargo"] = $row["cargofuncionario"];
             } else {
                 $resposta["mensagem"] = "Erro na query: " . $conexao->error;
             }
