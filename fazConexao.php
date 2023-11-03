@@ -8,7 +8,11 @@ $resposta["erro"] = true;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = "'".$_POST['login']."'";
     $senha = "'".$_POST['senha']."'";
+    echo $login;
+    echo $senha;
 
+     $resposta["login"] = $login;
+    $resposta["senha"] = $senha;
     $conexao = conectarAoBanco();
     if ($conexao === null) {
         $resposta["mensagem"] = "Erro na conexão com o banco de dados.";
