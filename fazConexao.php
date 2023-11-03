@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $resposta["mensagem"] = "Dados de login e senha não foram recebidos corretamente.";
     }
 } else {
-    $resposta["mensagem"] = "Login e senha são obrigatórios.";
+    $resposta["mensagem"] = "Metodo incorreto.";
 }
 
 echo json_encode($resposta);
