@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $resposta["erro"] = false;
             $resposta["cargo"] = $row["cargo"];
         } else {
+              $resposta["cargo"] = "nao encontrado";
             $resposta["mensagem"] = "Nada a mostrar";
         }
 
