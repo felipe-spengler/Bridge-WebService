@@ -3,7 +3,9 @@
 function conectarAoBanco() {
     $db_host = "aws.connect.psdb.cloud";
     $db_usuario = "bwz5h5k1bxmurqvhenzm";
-    $db_senha = "pscale_pw_bCBwHapiuLmgxm7c7VF4KHAGnmRgSRy13fzA6IbBEPL";
+    $db_senha = "senhapadrao";
+    //$db_senha = "pscale_pw_bCBwHapiuLmgxm7c7VF4KHAGnmRgSRy13fzA6IbBEPL";
+
     $db_banco = "motelintensy";
 
     $mysqli = mysqli_init();
