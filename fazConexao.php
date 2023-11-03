@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if ($conexao === null) {
             $resposta["mensagem"] = "Erro na conexão com o banco de dados.";
         } else {
-            $sql = "SELECT cargo FROM funcionario WHERE loginfuncionario = ? AND senhafuncionario = ?";
+            $sql = "SELECT cargofuncionario FROM funcionario WHERE loginfuncionario = ? AND senhafuncionario = ?";
             $stmt = $conexao->prepare($sql);
             $stmt->bind_param("ss", $login, $senha);
             $stmt->execute();
