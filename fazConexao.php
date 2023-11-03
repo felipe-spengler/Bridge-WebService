@@ -5,10 +5,10 @@ include 'conexao2.php';
 $resposta = array();
 $resposta["erro"] = true;
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_GET['login']) && isset($_GET['senha'])) {
-        $login = $_GET['login'];
-        $senha = $_GET['senha'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['login']) && isset($_POST['senha'])) {
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
 
         $conexao = conectarAoBanco();
 
