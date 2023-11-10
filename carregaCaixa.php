@@ -117,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $resposta["mensagem"] = "Erro na conexão com o banco de dados.";
     } else {
         $idCaixasMesAtual = obterIdCaixaMesAtual($conexao);
+        $resposta["id"] = $idCaixasMesAtual;
         $quantidadeCaixas = count($idCaixasMesAtual);
         $faturamentoAtual = somarSaldosFechadosMesAtual($conexao, $idCaixasMesAtual);
         $mediaFaturamento = $faturamentoAtual / date('j');
