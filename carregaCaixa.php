@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $previsaoLocacoes = $mediaLocacoes * date('t');
 
         $medias = calcularMedias($conexao, $idCaixasMesAtual);
-
+        $resposta["erro"] = false;
       	  $resposta["mediaValorConsumo"] = $medias["mediaValorConsumo"];
         	$resposta["mediaValorQuarto"] = $medias["mediaValorQuarto"];
        	 $resposta["ticketMedioLocacoes"] = $medias["ticketMedioLocacoes"];
