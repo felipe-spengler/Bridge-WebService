@@ -24,7 +24,7 @@ function obterIdCaixaMesAtual($conexao) {
 
         return $idCaixas;
     } else {
-        return null;
+        return 0;
     }
 }
 
