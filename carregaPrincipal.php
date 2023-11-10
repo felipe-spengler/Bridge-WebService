@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-include 'conexao.php';
+include 'conexao2.php';
 
 $resposta = array();
 $resposta["erro"] = true;
