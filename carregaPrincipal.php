@@ -124,6 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } else {
     $resposta["mensagem"] = "Altere o metodo de requisicao.";
+    $resposta["mensagem2"] = $_SERVER['REQUEST_METHOD'];
 }
 
 echo json_encode($resposta);
