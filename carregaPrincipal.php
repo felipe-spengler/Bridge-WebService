@@ -98,7 +98,7 @@ function contarRegistros($conexao, $idCaixa) {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET') {
     $conexao = conectarAoBanco();
     if ($conexao === null) {
         $resposta["mensagem"] = "Erro na conexão com o banco de dados.";
