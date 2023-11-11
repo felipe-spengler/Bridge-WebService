@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conexao->close();
     }
 } else {
-    $resposta["mensagem"] = "Login e senha são obrigatórios.";
+    $resposta["mensagem"] = "Altere o metodo de requisicao.";
 }
 
 echo json_encode($resposta);
