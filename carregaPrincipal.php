@@ -46,8 +46,8 @@ function obterStatusEContarRegistros($conexao, &$resposta) {
         "limpeza" => 0,
         "livre" => 0,
         "manutencao" => 0,
-        "reserva" => 0,
-        "ocupados" => 0
+        "reservado" => 0,
+        "ocupado" => 0
     );
 
     $sql = "SELECT atualquarto FROM status";
@@ -67,10 +67,10 @@ function obterStatusEContarRegistros($conexao, &$resposta) {
                 case "manutencao":
                     $statusContagem["manutencao"]++;
                     break;
-                case "reserva":
+                case "reservado":
                     $statusContagem["reservado"]++;
                     break;
-                case "ocupados":
+                case "ocupado":
                     $statusContagem["ocupado"]++;
                     break;
                 default:
@@ -83,8 +83,8 @@ function obterStatusEContarRegistros($conexao, &$resposta) {
     $resposta["limpeza"] = $statusContagem["limpeza"];
     $resposta["livre"] = $statusContagem["livre"];
     $resposta["manutencao"] = $statusContagem["manutencao"];
-    $resposta["reserva"] = $statusContagem["reserva"];
-    $resposta["ocupado"] = $statusContagem["ocupados"];
+    $resposta["reserva"] = $statusContagem["reservado"];
+    $resposta["ocupado"] = $statusContagem["ocupado"];
 }
 function contarRegistros($conexao, $idCaixa) {
     $sql = "SELECT COUNT(*) as total_registros FROM registralocado WHERE idcaixaatual = $idCaixa";
