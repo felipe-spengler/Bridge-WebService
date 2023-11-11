@@ -71,7 +71,7 @@ function obterStatusEContarRegistros($conexao, &$resposta) {
                     $statusContagem["reservado"]++;
                     break;
                 case "ocupados":
-                    $statusContagem["ocupados"]++;
+                    $statusContagem["ocupado"]++;
                     break;
                 default:
                     // Se algum outro status for encontrado, você pode lidar com ele aqui.
