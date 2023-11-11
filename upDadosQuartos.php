@@ -9,7 +9,7 @@ function uploadQuartos($link) {
     $status;
     $tipo;
 
-    $consultaSQL = "SELECT * FROM quartos ORDER BY numeroquarto";
+    $consultaSQL = "SELECT * FROM status ORDER BY numeroquarto";
     $resultado = $link->query($consultaSQL);
 
     if ($resultado->num_rows > 0) {
