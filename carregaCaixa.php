@@ -67,7 +67,7 @@ function obterTotalLocacoes($conexao, $idCaixasMesAtual) {
 
 function calcularMedias($conexao, $idCaixasMesAtual) {
     if (empty($idCaixasMesAtual)) {
-        return ["mediaValorConsumo" => 0, "mediaValorQuarto" => 0];
+        return ["mediaValorConsumo" => 0, "mediaValorQuarto" => 0, "ticketMedioLocacoes" => 0];
     }
 
     $ids = implode(",", $idCaixasMesAtual);
