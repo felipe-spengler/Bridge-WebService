@@ -87,7 +87,7 @@ function calcularMedias($conexao, $idCaixasMesAtual) {
             $numRegistros++;
         }
 
-        if ($numRegistros >= 0) {
+        if ($numRegistros > 0) {
             $mediaValorConsumo = $somaValorConsumo / $numRegistros;
             $mediaValorQuarto = $somaValorQuarto / $numRegistros;
             $ticketMedioLocacoes = $somaLocacoes / $numRegistros;
