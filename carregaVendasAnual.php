@@ -90,14 +90,14 @@ function calculaMeses($conexao, $ano) {
         return array('success' => false, 'mensagem' => $conexao->error);
     }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $conexao = conectarAoBanco();
 
     if ($conexao === null) {
         $respostaGeral["erro"] = true;
         $respostaGeral["mensagem"] = "Erro na conexão com o banco de dados.";
     } else {
-        $ano = $_POST['anoPassado'];
+        $ano = $_GET['anoPassado'];
 
         if ($ano === false || $ano === null) {
             $respostaGeral["erro"] = true;
