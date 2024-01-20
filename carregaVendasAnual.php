@@ -12,7 +12,6 @@ function contarLocacoesPorMes($conexao, $ano) {
     // Consulta para obter a contagem de locações para cada idcaixaatual
     $sqlLocacoes = "SELECT idcaixaatual, COUNT(*) as total_locacoes 
                     FROM registralocado 
-                    WHERE YEAR(datahospedagem) = $ano 
                     GROUP BY idcaixaatual";
 
     $resultLocacoes = $conexao->query($sqlLocacoes);
