@@ -54,7 +54,10 @@ function contarLocacoesPorMes($conexao, $ano) {
     // Soma as locações para cada mês
     foreach ($locacoesPorIdCaixa as $idCaixa => $totalLocacoes) {
         $mes = $mesesPorIdCaixa[$idCaixa];
-        $contagemPorMes[$mes] += $totalLocacoes;
+        // Verifica se a chave existe antes de acessá-la
+        if (isset($contagemPorMes[$mes])) {
+            $contagemPorMes[$mes] += $totalLocacoes;
+        }
     }
 
     return array('success' => true, 'contagem' => $contagemPorMes);
