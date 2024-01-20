@@ -2,8 +2,8 @@
 header('Content-Type: application/json; charset=utf-8');
 include 'conexao2.php';
 
-$resposta = array();
-$resposta["erro"] = true;
+$respostaGeral = array();
+$respostaGeral["erro"] = true;
 
 function calculaMeses($conexao) {
     $ano = $_POST['anoPassado'];
@@ -33,7 +33,7 @@ function calculaMeses($conexao) {
 
         return array('success' => true, 'resposta' => $resposta);
     } else {
-        return array('success' => false, 'resposta' => array());
+        return array('success' => false, 'mensagem' => $conexao->error);
     }
 }
 
@@ -41,28 +41,10 @@ function calculaMeses($conexao) {
 $resultado = calculaMeses($sua_conexao);
 
 if ($resultado['success']) {
-    $resposta = $resultado['resposta'];
-    // Faça algo com o array $resposta
-    print_r($resposta);
+    $respostaGeral["resultado"] = $resultado['resposta'];
 } else {
-    echo "Erro ao calcular os meses.";
+    $respostaGeral["mensagem"] = "Erro ao calcular os meses: " . $resultado['mensagem'];
 }
 
-
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $conexao = conectarAoBanco();
-    if ($conexao === null) {
-        $resposta["mensagem"] = "Erro na conexão com o banco de dados.";
-    } else {
-        faturamentoMeses($conexao);
-        $conexao->close();
-    }
-} else {
-    $resposta["erro"] = "Requisição inválida.";
-
-}
-
-echo json_encode($resposta);
+echo json_encode($respostaGeral);
 ?>
