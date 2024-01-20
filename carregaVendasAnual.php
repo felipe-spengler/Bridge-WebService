@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $respostaGeral["erro"] = true;
         $respostaGeral["mensagem"] = "Erro na conexão com o banco de dados.";
     } else {
-        $ano = filter_input(INPUT_POST, 'anoPassado', FILTER_VALIDATE_INT);
+        $ano = $_POST['anoPassado'];
 
         if ($ano === false || $ano === null) {
             $respostaGeral["erro"] = true;
