@@ -5,7 +5,22 @@ include 'conexao2.php';
 $respostaGeral = array();
 $respostaGeral["erro"] = true;
 
+function obterAnosDistintos($conexao) {
+    $sql = "SELECT DISTINCT YEAR(horaabre) as ano FROM caixa";
+    $result = $conexao->query($sql);
 
+    if ($result) {
+        $anos = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $anos[] = $row['ano'];
+        }
+
+        return $anos;
+    } else {
+        return "erro na requisição";
+    }
+}
 function contarLocacoesPorMes($conexao, $ano) {
     $contagemPorMes = array();
 
@@ -93,19 +108,26 @@ function calculaMeses($conexao, $ano) {
         return array('success' => false, 'mensagem' => $conexao->error);
     }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conexao = conectarAoBanco();
 
     if ($conexao === null) {
         $respostaGeral["erro"] = true;
         $respostaGeral["mensagem"] = "Erro na conexão com o banco de dados.";
     } else {
-        $ano = $_GET['anoPassado'];
+        $ano = $_POST['anoPassado'];
 
         if ($ano === false || $ano === null) {
             $respostaGeral["erro"] = true;
             $respostaGeral["mensagem"] = "Ano inválido ou não fornecido.";
         } else {
+            $anosDistintos = obterAnosDistintos($suaConexao);
+            
+            if (is_array($anosDistintos)) {
+                $respostaGeral["anosDistintos"] = $anosDistintos;
+            } else {
+                $respostaGeral["anosDistintos"] = "erro";
+            }
             $respostaGeral["locacoes"] = contarLocacoesPorMes($conexao, $ano);
             $respostaGeral["faturamento"] = calculaMeses($conexao, $ano);
             $respostaGeral["erro"] = false;
