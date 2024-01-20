@@ -60,8 +60,7 @@ function contarLocacoesPorMes($conexao, $ano) {
     return array('success' => true, 'contagem' => $contagemPorMes);
 }
 
-function calculaMeses($conexao) {
-    $ano = $_POST['anoPassado'];
+function calculaMeses($conexao, $ano) {
 
     $sql = "SELECT 
                 MONTH(horaabre) as mes, 
@@ -105,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $respostaGeral["mensagem"] = "Ano inválido ou não fornecido.";
         } else {
             $respostaGeral["locacoes"] = contarLocacoesPorMes($conexao, $ano);
-            $respostaGeral["faturamento"] = calculaMeses($conexao);
+            $respostaGeral["faturamento"] = calculaMeses($conexao, $ano);
             $respostaGeral["erro"] = false;
         }
 
