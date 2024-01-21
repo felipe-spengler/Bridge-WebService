@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $respostaGeral["erro"] = true;
             $respostaGeral["mensagem"] = "Ano inválido ou não fornecido.";
         } else {
-            $anosDistintos = obterAnosDistintos($suaConexao);
+            $anosDistintos = obterAnosDistintos($conexao);
             
             if (is_array($anosDistintos)) {
                 $respostaGeral["anosDistintos"] = $anosDistintos;
