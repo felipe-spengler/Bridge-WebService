@@ -1,6 +1,6 @@
 ---
-title: Node HTTP Module
-description: A HTTP module server
+title: BreadcrumbsBridge-WebService
+description: Web service to connect an Android app to an online MySQL database and load data to display in the app
 tags:
   - http
   - nodejs
